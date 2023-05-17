@@ -1,0 +1,42 @@
+#header .header_container {
+  display: flex;
+  justify-content: space-between;
+  padding: 0px 120px;
+  height: 80px;
+  align-items: center;
+}
+
+#header h3{
+  font-weight: bolder;
+}
+
+#header ul{
+  display: flex;
+  height: fit-content;
+}
+
+#header li{
+  list-style: none;
+  height: fit-content;
+}
+
+#header li a {
+  padding: 25px 12px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background-color 0.5s;
+  color: inherit;
+  background-color: white;
+}
+
+#header li a:hover{
+  text-decoration: none;
+  color: inherit;
+  font-weight: bold;
+  background-color: black;
+  color: white;
+}
+
+#main .main_top img{
+  width: 100%;
+}
