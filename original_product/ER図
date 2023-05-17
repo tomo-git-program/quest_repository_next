@@ -1,0 +1,74 @@
+@startuml
+!define Table(name,desc) entity name as "desc" << (E, #FFAAAA) >>
+hide circle
+
+Table(Users, "Users") {
+  + UserID [PK]
+  UserName
+  Email
+  Password
+  ContactInfo
+  ProfileInfo
+}
+
+Table(Groups, "Groups") {
+  + GroupID [PK]
+  GroupName
+  GroupDescription
+  GroupImage
+}
+
+Table(GroupCreators, "GroupCreators") {
+  + GroupID [PK]
+  + UserID [PK]
+}
+
+Table(Events, "Events") {
+  + EventID [PK]
+  EventName
+  EventDescription
+  EventDateTime
+  EventLocation
+}
+
+Table(EventCreators, "EventCreators") {
+  + EventID [PK]
+  + UserID [PK]
+}
+
+Table(Messages, "Messages") {
+  + MessageID [PK]
+  MessageText
+  SendDateTime
+}
+
+Table(Senders, "Senders") {
+  + MessageID [PK]
+  + UserID [PK]
+}
+
+Table(Recipients, "Recipients") {
+  + MessageID [PK]
+  + UserID [PK]
+}
+
+Table(Friends, "Friends") {
+  + User1ID [PK]
+  + User2ID [PK]
+  FriendAddDateTime
+}
+
+Users }o--|| GroupCreators
+Users }o--|| EventCreators
+Users }o--|| Senders
+Users }o--|| Recipients
+Users }o--|| Friends
+
+Groups }o--|| GroupCreators
+
+Events }o--|| EventCreators
+
+Messages }o--|| Senders
+Messages }o--|| Recipients
+
+@enduml
